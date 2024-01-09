@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/productUser")
-//@CrossOrigin("*")
+@CrossOrigin("*")
 public class ProductUser {
     @Autowired
     ProductRepository productRepository;
