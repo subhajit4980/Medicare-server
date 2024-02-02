@@ -1,5 +1,7 @@
 package com.subhajit.Medicare.Payload.request;
 
+import com.subhajit.Medicare.Models.ERole;
+import com.subhajit.Medicare.Models.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -13,23 +15,18 @@ import java.util.Set;
 @Builder
 @Data
 public class SignupRequest {
-
     @NotBlank
     private String firstName;
-
     @NotBlank
     private String lastName;
     @NotBlank
     @Size(min = 3, max = 20)
     private String username;
-
     @NotBlank
     @Size(max = 50)
     @Email
     private String email;
-
-    private Set<String> roles;
-
+    private ERole role;
     @NotBlank
     @Size(min = 6, max = 40)
     private String password;

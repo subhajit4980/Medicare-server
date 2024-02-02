@@ -4,10 +4,12 @@
     <inspection_tool class="ExtractMethodRecommender" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="minLength" value="756" />
     </inspection_tool>
+    <inspection_tool class="MalformedFormatString" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="VulnerableLibrariesLocal" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="isIgnoringEnabled" value="true" />
       <option name="ignoredModules">
         <list>
+          <option value="Medicare" />
           <option value="Medicare" />
           <option value="Medicare" />
           <option value="Medicare" />
@@ -22,10 +24,12 @@
           <option value="com.jayway.jsonpath:json-path:2.8.0" />
           <option value="com.squareup.okio:okio-jvm:3.0.0" />
           <option value="org.json:json:20180130" />
+          <option value="com.google.guava:guava:18.0" />
         </list>
       </option>
       <option name="ignoredReasons">
         <list>
+          <option value="Not exploitable" />
           <option value="Not exploitable" />
           <option value="Not exploitable" />
           <option value="Not exploitable" />

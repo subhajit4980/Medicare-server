@@ -5,12 +5,17 @@ import com.subhajit.Medicare.Models.Role;
 import com.subhajit.Medicare.Models.User;
 import com.subhajit.Medicare.Payload.request.LoginRequest;
 import com.subhajit.Medicare.Payload.request.SignupRequest;
+import com.subhajit.Medicare.Payload.response.AuthResponse;
 import com.subhajit.Medicare.Payload.response.JwtResponse;
 import com.subhajit.Medicare.Payload.response.MessageResponse;
 import com.subhajit.Medicare.Repository.RoleRepository;
 import com.subhajit.Medicare.Repository.UserRepository;
 import com.subhajit.Medicare.Security.JwtUtils;
-import com.subhajit.Medicare.Services.Implementation.UserDetailsImpl;
+import com.subhajit.Medicare.Services.AuthService;
+//import com.subhajit.Medicare.Services.Implementation.UserDetailsImpl;
+import com.subhajit.Medicare.Services.LogoutService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +27,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
@@ -35,97 +41,36 @@ import java.util.stream.Collectors;
 public class AuthController {
     @Autowired
     AuthenticationManager authenticationManager;
-
     @Autowired
     UserRepository userRepository;
-
     @Autowired
     RoleRepository roleRepository;
-
     @Autowired
     PasswordEncoder encoder;
-
     @Autowired
-    JwtUtils jwtUtils;
-    @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
-        if (userRepository.existsByUsername(signUpRequest.getUsername())) {
-            return ResponseEntity
-                    .badRequest()
-                    .body(new MessageResponse("Error: Username is already taken!"));
-        }
+    AuthService authService;
+    @Autowired
+    LogoutService logoutService;
 
-        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-            return ResponseEntity
-                    .badRequest()
-                    .body(new MessageResponse("Error: Email is already in use!"));
-        }
-
-        User user = new User(signUpRequest.getFirstName(),signUpRequest.getLastName(),signUpRequest.getUsername(),
-                signUpRequest.getEmail(),
-                encoder.encode(signUpRequest.getPassword()));
-
-        Set<String> strRoles = signUpRequest.getRoles();
-        Set<Role> roles = new HashSet<>();
-
-        if (strRoles == null) {
-            Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-            roles.add(userRole);
-        } else {
-            strRoles.forEach(role -> {
-                switch (role) {
-                    case "admin":
-                        Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
-                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-                        roles.add(adminRole);
-
-                        break;
-                    case "mod":
-                        Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
-                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-                        roles.add(modRole);
-
-                        break;
-                    default:
-                        Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-                        roles.add(userRole);
-                }
-            });
-        }
-        // Get the current timestamp
-        Instant currentInstant = Instant.now();
-
-        // Convert the timestamp to a string
-        Date currentDate = Date.from(currentInstant);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String currentTimestampStr = sdf.format(currentDate);
-        user.setRoles(roles);
-        user.setCreationTime(currentTimestampStr);
-        userRepository.save(user);
-
-        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+    @PostMapping("/signUp")
+    public ResponseEntity<AuthResponse> register(
+            @RequestBody SignupRequest request
+    ) {
+        return ResponseEntity.ok(authService.register(request));
     }
-   @PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-        Authentication auth = new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword());
-        Authentication authentication = authenticationManager.authenticate(auth);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtUtils.generateJwtToken(authentication);
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        List<String> roles = userDetails.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(new JwtResponse(jwt,"Bearer",
-                userDetails.getId(),
-                userDetails.getUsername(),
-                userDetails.getEmail(),
-                roles));
+   @PostMapping("/signIn")
+    public ResponseEntity<AuthResponse> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+       return ResponseEntity.ok(authService.authenticate(loginRequest));
+    }
+    @PostMapping("/refresh-token")
+    public void refreshToken(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws IOException {
+        authService.refreshToken(request, response);
     }
     @GetMapping("/logout")
     public ResponseEntity<?> logoutUser() {
-        SecurityContextHolder.clearContext();
         return ResponseEntity.ok("Logout successful");
     }
 }

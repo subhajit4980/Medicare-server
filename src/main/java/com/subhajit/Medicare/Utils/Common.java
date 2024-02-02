@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Common {
     public static  String body(int otp){
-        String message="Dear Customere,\n" +
+        return "Dear Customer,\n" +
                 "\n" +
                 "We have received a request to reset the password for your account associated with on our platform. To ensure the security of your account, we have initiated the password reset process.\n" +
                 "\n" +
@@ -23,7 +23,31 @@ public class Common {
                 "\n" +
                 "Best regards,\n" +
                 "Medicare";
-        return message;
+    }
+    public  final String WelcomeSubject="Welcome to Medicare - Your Journey to Health Begins Here!";
+    public  String welComeMessage( String userName)
+    {
+        String websiteName = "Medicare";
+        String supportEmail = "subhajitpatra498@gmail.com";
+        return String.format("""
+                Dear %s,
+
+                Welcome to %s, your trusted destination for all your medical product needs! We're thrilled to have you join our community.
+
+                At %s, we offer a wide range of high-quality medical products, from essential supplies to advanced equipment, all carefully curated to meet your healthcare needs.
+
+                Here are a few things you can do now that you've signed up:
+                - Explore our extensive catalog of medical products and discover the latest innovations.
+                - Enjoy convenient and secure shopping with our user-friendly interface.
+                - Stay informed about new arrivals, special offers, and promotions by subscribing to our newsletter.
+
+                If you have any questions or need assistance, our dedicated support team is here to help. Feel free to reach out to us at %s.
+
+                Thank you for choosing %s. We're committed to providing you with a seamless shopping experience and helping you stay healthy.
+
+                Best regards,
+                Your %s Team""", userName, websiteName, websiteName, supportEmail, websiteName, websiteName);
+
     }
 
 

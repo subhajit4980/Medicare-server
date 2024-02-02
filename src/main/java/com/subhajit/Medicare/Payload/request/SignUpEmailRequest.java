@@ -1,5 +1,6 @@
 package com.subhajit.Medicare.Payload.request;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
@@ -9,10 +10,12 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Data
-public class LoginRequest {
+public class SignUpEmailRequest {
     @NotBlank
-    private String email;
+    @Email
+    String email;
     @NotBlank
-    private String password;
-
+    String subject = "";
+    @NotBlank
+    String message;
 }

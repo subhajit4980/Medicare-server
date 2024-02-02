@@ -1,5 +1,8 @@
 package com.subhajit.Medicare.Services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.mail.*;
@@ -26,7 +29,7 @@ public class EmailService
                 return new PasswordAuthentication(from,"yjgjxruvxenkhndf");
             }
         });
-        session.setDebug(true);
+//        session.setDebug(true);
         MimeMessage m=new MimeMessage(session);
         try {
             m.setFrom(from);

@@ -26,7 +26,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "users") // Collection name in MongoDB
-public class User implements UserDetails {
+public class Users implements UserDetails {
     @Id
     private String UserId;
 
@@ -55,7 +55,7 @@ public class User implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private ERole role;
-    public User(String firstName,String lastName,String username, String email, String password) {
+    public Users(String firstName,String lastName,String username, String email, String password) {
         this.firstName=firstName;
         this.lastName=lastName;
         this.username = username;
