@@ -5,9 +5,8 @@ import com.subhajit.Medicare.Payload.request.ForgetPasswordRequest;
 import com.subhajit.Medicare.Payload.request.UpdatePasswordRequest;
 import com.subhajit.Medicare.Payload.response.MessageResponse;
 import com.subhajit.Medicare.Repository.UserRepository;
-import com.subhajit.Medicare.Security.services.EmailService;
+import com.subhajit.Medicare.Services.EmailService;
 import com.subhajit.Medicare.Utils.Common;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -16,12 +15,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.context.HttpRequestResponseHolder;
 import org.springframework.web.bind.annotation.*;
-import javax.mail.Session;
-import java.security.SecureRandom;
-import java.util.Base64;
-import java.util.Properties;
+
 import java.util.Random;
 
 @RestController
