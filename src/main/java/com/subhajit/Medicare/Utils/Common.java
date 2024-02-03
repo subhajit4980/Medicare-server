@@ -2,6 +2,11 @@ package com.subhajit.Medicare.Utils;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @Component
 public class Common {
     public static  String body(int otp){
@@ -24,8 +29,7 @@ public class Common {
                 "Best regards,\n" +
                 "Medicare";
     }
-    public  final String WelcomeSubject="Welcome to Medicare - Your Journey to Health Begins Here!";
-    public  String welComeMessage( String userName)
+    public static String welComeMessage( String userName)
     {
         String websiteName = "Medicare";
         String supportEmail = "subhajitpatra498@gmail.com";
@@ -50,5 +54,16 @@ public class Common {
 
     }
 
+    // Method to validate password and return missing character types
+    public static List<String> validatePassword(String password) {
+        List<String> missingCharTypes = new ArrayList<>();
+
+        if (!password.matches(".*\\d.*")) missingCharTypes.add("Digit");
+        if (!password.matches(".*[a-z].*")) missingCharTypes.add("Lowercase letter");
+        if (!password.matches(".*[A-Z].*")) missingCharTypes.add("Uppercase letter");
+        if (!password.matches(".*[@#$%^&+=!].*")) missingCharTypes.add("Special character");
+
+        return missingCharTypes;
+    }
 
 }

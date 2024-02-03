@@ -12,6 +12,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -35,13 +36,9 @@ public class User implements UserDetails {
 
     @NotBlank
     private String lastName;
-    @NotBlank
-    @Size(max = 20)
-    private String username;
 
     @NotBlank
     @Size(max = 50)
-    @Email
     private String email;
 
     @NotBlank
@@ -49,20 +46,10 @@ public class User implements UserDetails {
     private String password;
 
     @NotBlank
-    private String creationTime;
-
-    private List<Token> tokens;
+    private Date creationDate;
 
     @Enumerated(EnumType.STRING)
     private ERole role;
-    public User(String firstName,String lastName,String username, String email, String password) {
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

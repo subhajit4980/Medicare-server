@@ -1,9 +1,7 @@
 package com.subhajit.Medicare.controllers.API.Order;
 
-import com.subhajit.Medicare.Models.Cart;
 import com.subhajit.Medicare.Models.Product;
 import com.subhajit.Medicare.Models.Order;
-import com.subhajit.Medicare.Payload.request.CartRequest;
 import com.subhajit.Medicare.Payload.request.OrderRequest;
 import com.subhajit.Medicare.Repository.CartRepository;
 import com.subhajit.Medicare.Repository.ProductRepository;
@@ -11,7 +9,6 @@ import com.subhajit.Medicare.Repository.OrderRepository;
 import com.subhajit.Medicare.Repository.UserRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class Order_Controller {
+public class OrderController {
     @Autowired
     ProductRepository productRepository;
     @Autowired

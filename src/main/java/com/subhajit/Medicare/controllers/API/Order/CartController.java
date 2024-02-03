@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-public class Cart_Controller {
+public class CartController {
     @Autowired
     ProductRepository productRepository;
     @Autowired
