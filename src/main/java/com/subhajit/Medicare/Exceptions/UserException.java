@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserException extends RuntimeException {
-    private final String errorCode;
+    private String errorCode="INVALID_REQUEST";
     public UserException(String message, String errorCode) {
         super(message);
         this.errorCode = errorCode;

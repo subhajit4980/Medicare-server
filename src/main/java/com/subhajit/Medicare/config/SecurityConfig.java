@@ -57,7 +57,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(AppConstant.PUBLIC_URLS).permitAll()
-                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/Admin/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
                 );
         http.authenticationProvider(appConfig.authenticationProvider());

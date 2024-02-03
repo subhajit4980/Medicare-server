@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/productsAdmin")
+@RequestMapping("/api/Admin")
 public class ProductAdmin {
     @Autowired
     ProductRepository productRepository;

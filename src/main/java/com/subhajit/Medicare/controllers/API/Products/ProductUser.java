@@ -4,7 +4,9 @@ import com.subhajit.Medicare.Models.Product;
 import com.subhajit.Medicare.Repository.ProductRepository;
 import com.subhajit.Medicare.Repository.OrderRepository;
 import com.subhajit.Medicare.Repository.UserRepository;
+import com.subhajit.Medicare.Services.EmailService;
 import jakarta.validation.Valid;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +14,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/productUser")
+@RequestMapping("/api/Public")
 @CrossOrigin("*")
 public class ProductUser {
     @Autowired
@@ -21,8 +23,10 @@ public class ProductUser {
     UserRepository userRepository;
     @Autowired
     OrderRepository orderRepository;
-
+    @Autowired
+    EmailService emailService;
     //    Read item data from database
+    @SneakyThrows
     @GetMapping("/getItem")
     public List<Product> getItems() {
         return productRepository.findAll();

@@ -21,7 +21,6 @@ import static com.subhajit.Medicare.Models.Permission.MANAGER_UPDATE;
 
 @RequiredArgsConstructor
 public enum ERole {
-
     USER(Collections.emptySet()),
     ADMIN(
             Set.of(
@@ -42,9 +41,7 @@ public enum ERole {
                     MANAGER_DELETE,
                     MANAGER_CREATE
             )
-    )
-
-    ;
+    );
 
     @Getter
     private final Set<Permission> permissions;

@@ -1,11 +1,7 @@
 package com.subhajit.Medicare.Models;
 
-import com.subhajit.Medicare.Models.ERole;
-import com.subhajit.Medicare.Models.Role;
-import com.subhajit.Medicare.Tokens.Token;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
@@ -13,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,7 +24,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Document(collection = "users") // Collection name in MongoDB
 public class User implements UserDetails {
     @Id
-    private String UserId;
+    private String userId;
 
     @NotBlank
     private String firstName;
