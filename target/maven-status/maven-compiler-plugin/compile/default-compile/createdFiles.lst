@@ -25,6 +25,7 @@ com\subhajit\Medicare\Tokens\Token.class
 com\subhajit\Medicare\Exceptions\UserException.class
 com\subhajit\Medicare\Payload\request\ProductRequest$ProductRequestBuilder.class
 com\subhajit\Medicare\Payload\request\LoginRequest.class
+com\subhajit\Medicare\config\CorsConfig$1.class
 com\subhajit\Medicare\config\OpenApiConfig.class
 com\subhajit\Medicare\Models\Cart.class
 com\subhajit\Medicare\Exceptions\CartException.class

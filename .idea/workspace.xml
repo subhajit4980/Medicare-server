@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="880bf22f-25fa-4ddc-aa8d-c8ab4af7c386" name="Changes" comment="" />
+    <list default="true" id="880bf22f-25fa-4ddc-aa8d-c8ab4af7c386" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/config/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Medicare.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Medicare.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Medicare.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/Medicare.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/config/CorsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/config/CorsConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.subhajit.Medicare.MedicareApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.subhajit.Medicare.MedicareApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.subhajit.Medicare.MedicareApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.subhajit.Medicare.MedicareApplicationTests.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
