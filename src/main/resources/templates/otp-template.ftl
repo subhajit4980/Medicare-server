@@ -37,7 +37,7 @@
         <p style="font-weight: bold;">OTP: ${otp}</p>
         <p>Please enter this OTP on the password reset page to verify your identity and proceed with resetting your password. This OTP is valid for 5 minutes from the time of this email. If you did not initiate this request, please ignore this email.</p>
         <p>For security reasons, please do not share this OTP with anyone. Our support team will never ask you for your OTP or password.</p>
-        <p>If you have any questions or need further assistance, please don't hesitate to contact our support team at <a href="mailto:subhajit2000patra@gmail.com">subhajit2000patra@gmail.com</a>.</p>
+        <p>If you have any questions or need further assistance, please don't hesitate to contact our support team at <a href="mailto:medicare.team13@gmail.com">medicare.team13@gmail.com</a>.</p>
         <p>Thank you for using our platform.</p>
         <p>Best regards,<br>Medicare</p>
     </div>
