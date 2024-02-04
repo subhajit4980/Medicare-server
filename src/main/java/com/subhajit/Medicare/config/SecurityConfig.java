@@ -32,7 +32,6 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
 @Configuration
 @EnableMethodSecurity // Enables method-level security annotations
 @RequiredArgsConstructor // Lombok annotation to generate constructor with required fields
-@EnableWebSecurity // Enables Spring Security for web applications
 public class SecurityConfig {
 
     // Injecting dependencies via constructor
