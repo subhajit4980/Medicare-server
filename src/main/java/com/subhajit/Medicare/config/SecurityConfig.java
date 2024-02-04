@@ -23,12 +23,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 
-import java.util.Arrays;
-import java.util.Collections;
 
 @Configuration
 @EnableMethodSecurity // Enables method-level security annotations
@@ -41,7 +40,7 @@ public class SecurityConfig {
     private final AuthEntryPointJwt point; // Authentication entry point for JWT
     private final LogoutHandler logoutHandler; // Logout handler
     private final AuthTokenFilter authTokenFilter; // JWT authentication filter
-
+    private final AppConstant appConstant;
     // Bean for AuthenticationManager
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
@@ -55,11 +54,15 @@ public class SecurityConfig {
         http.exceptionHandling(exception -> exception.authenticationEntryPoint(point))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(AppConstant.PUBLIC_URLS).permitAll() // Permit access to public URLs
-                        .requestMatchers("/api/Admin/**").hasAuthority("ADMIN") // Require ADMIN authority for admin API
+                        .requestMatchers(new AntPathRequestMatcher("/api/auth/**")).permitAll() // Permit access to public URLs
+                        .requestMatchers(new AntPathRequestMatcher("/api/Public/**")).permitAll() // Permit access to public URLs
+                        .requestMatchers(new AntPathRequestMatcher("/api/test/**")).permitAll() // Permit access to public URLs
+                        .requestMatchers(new AntPathRequestMatcher("/swagger-ui/**")).permitAll() // Permit access to public URLs
+                        .requestMatchers(new AntPathRequestMatcher("/v3/api-docs/**")).permitAll() // Permit access to public URLs
+                        .requestMatchers(new AntPathRequestMatcher("/swagger-resources/**")).permitAll() // Permit access to public URLs
+                        .requestMatchers(new AntPathRequestMatcher("/api/Admin/**")).hasAuthority("ADMIN") // Require ADMIN authority for admin API
                         .anyRequest().authenticated() // Require authentication for any other requests
                 );
-
         // Adding custom authentication provider and JWT filter
         http.authenticationProvider(appConfig.authenticationProvider());
         http.addFilterBefore(authTokenFilter, UsernamePasswordAuthenticationFilter.class);
