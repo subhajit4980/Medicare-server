@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Inventory</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add custom CSS -->
+    <style>
+        /* Add custom CSS styles here */
+        body {
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .medicine-card {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4 mb-4">Medicine Inventory</h1>
+    <div class="row">
+        <!-- Loop through medicine data and create cards for each medicine -->
+        <!-- Replace this JSON data with your actual medicine data -->
+        <div class="col-md-4" th:each="medicine : ${data}">
+            <div class="medicine-card">
+                <img th:src="${medicine.imageUrl}" alt="Medicine Image" style="width: 150px; height: 150px; display: block; margin: 0 auto;">
+                <h2 th:text="${medicine.name}">Medicine Name</h2>
+                <p th:text="${'Description: ' + medicine.description}">Description</p>
+<!--                <p th:text="${#numbers.formatDecimal(medicine.price, 2)}">Price</p>-->
+                <p th:text="${'Quantity in Stock: ' + medicine.quantityInStock}">Quantity in Stock</p>
+                <p th:text="${'Manufacturer: ' + medicine.manufacturer}">Manufacturer</p>
+                <p th:text="${'Expiry Date: ' + medicine.expiryDate}">Expiry Date</p>
+<!--                <p th:text="${'Active Ingredients: ' + #strings.join(medicine.activeIngredients, ', ')}">Active Ingredients</p>-->
+                <p th:text="${'Usage Instructions: ' + medicine.usageInstructions}">Usage Instructions</p>
+                <!-- Add "Buy Now" and "Add to Cart" buttons -->
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <button class="btn btn-warning">Buy Now</button>
+                    <button class="btn btn-success">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Bootstrap JS and Popper.js scripts for Bootstrap components (optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
