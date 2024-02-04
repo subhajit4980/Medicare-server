@@ -21,6 +21,7 @@ public class CorsConfig implements CorsConfigurationSource {
     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
         // Create a new CorsConfiguration object
         CorsConfiguration cfg = new CorsConfiguration();
+        cfg.setAllowedOrigins(Collections.singletonList("*"));
 
         // Allow requests from all origins
         cfg.setAllowedOrigins(Collections.singletonList("*"));
