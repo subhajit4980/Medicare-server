@@ -11,10 +11,13 @@ import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 
 import java.util.Properties;
 
-
-
+/**
+ * Configuration class for email-related beans.
+ */
 @Configuration
 public class EmailConfig {
+
+    // Injecting email properties from application.properties
     @Value("${spring.mail.host}")
     private String mailHost;
     @Value("${spring.mail.port}")
@@ -23,6 +26,8 @@ public class EmailConfig {
     private String mailUsername;
     @Value("${spring.mail.password}")
     private String mailPassword;
+
+    // Bean for JavaMailSender
     @Bean
     public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
@@ -34,12 +39,13 @@ public class EmailConfig {
         props.put("mail.smtp.starttls.enable", "true");
         return javaMailSender;
     }
+
+    // Primary bean for FreeMarker configuration
     @Primary
     @Bean
     public FreeMarkerConfigurationFactoryBean factoryBean() {
-        FreeMarkerConfigurationFactoryBean bean=new FreeMarkerConfigurationFactoryBean();
+        FreeMarkerConfigurationFactoryBean bean = new FreeMarkerConfigurationFactoryBean();
         bean.setTemplateLoaderPath("classpath:/templates");
         return bean;
     }
-
 }
