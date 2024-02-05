@@ -4,6 +4,7 @@ com\subhajit\Medicare\Payload\request\CartRequest.class
 com\subhajit\Medicare\Models\User.class
 com\subhajit\Medicare\Security\jwt\AuthEntryPointJwt.class
 com\subhajit\Medicare\Models\Cart$CartBuilder.class
+com\subhajit\Medicare\Security\config\OpenApiConfig.class
 com\subhajit\Medicare\Security\services\EmailService$1.class
 com\subhajit\Medicare\Payload\request\UpdatePasswordRequest$UpdatePasswordRequestBuilder.class
 com\subhajit\Medicare\Payload\request\ForgetPasswordRequest$ForgetPasswordRequestBuilder.class
