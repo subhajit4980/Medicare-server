@@ -68,7 +68,7 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/v3/api-docs/**")).permitAll() // Permit access to public URLs
                         .requestMatchers(new AntPathRequestMatcher("/swagger-resources/**")).permitAll() // Permit access to public URLs
                         .requestMatchers(new AntPathRequestMatcher("/api/Admin/**")).hasAuthority("ADMIN") // Require ADMIN authority for admin API
-                        .requestMatchers(AppConstant.PUBLIC_URLS).permitAll()
+//                        .requestMatchers(AppConstant.PUBLIC_URLS).permitAll()
                         .anyRequest().authenticated() // Require authentication for any other requests
                 );
         // Adding custom authentication provider and JWT filter

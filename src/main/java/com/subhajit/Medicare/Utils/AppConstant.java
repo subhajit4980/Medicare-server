@@ -7,7 +7,7 @@ public class AppConstant {
     public static final String[] PUBLIC_URLS = {
             "/home",
             "/api/auth/**",
-            "/api/productUser/**",
+            "/api/Public/**",
             "/api/test/**",
             "/v2/api-docs",
             "/v3/api-docs",

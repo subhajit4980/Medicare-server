@@ -8,6 +8,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Configuration class for CORS (Cross-Origin Resource Sharing).
@@ -27,7 +28,7 @@ public class CorsConfig implements CorsConfigurationSource {
         CorsConfiguration cfg = new CorsConfiguration();
 
         // Allow requests from all origins
-        cfg.setAllowedOrigins(Collections.singletonList("*"));
+        cfg.setAllowedOrigins(List.of("*"));
 
         // Allow credentials (e.g., cookies, authorization headers)
         cfg.setAllowCredentials(true);
@@ -39,7 +40,7 @@ public class CorsConfig implements CorsConfigurationSource {
         cfg.setAllowedMethods(Collections.singletonList("*"));
 
         // Expose the Authorization header in the response
-        cfg.setExposedHeaders(Arrays.asList("Authorization"));
+        cfg.setExposedHeaders(List.of("Authorization"));
 
         // Set the maximum age (in seconds) for which the CORS configuration is valid
         cfg.setMaxAge(3600L);
