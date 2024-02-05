@@ -34,8 +34,8 @@ import java.util.Collections;
 
 @Configuration
 @EnableMethodSecurity // Enables method-level security annotations
-//@RequiredArgsConstructor // Lombok annotation to generate constructor with required fields
-//@EnableWebSecurity // Enables Spring Security for web applications
+@RequiredArgsConstructor // Lombok annotation to generate constructor with required fields
+@EnableWebSecurity // Enables Spring Security for web applications
 public class SecurityConfig {
 
     // Injecting dependencies via constructor
@@ -68,6 +68,7 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/v3/api-docs/**")).permitAll() // Permit access to public URLs
                         .requestMatchers(new AntPathRequestMatcher("/swagger-resources/**")).permitAll() // Permit access to public URLs
                         .requestMatchers(new AntPathRequestMatcher("/api/Admin/**")).hasAuthority("ADMIN") // Require ADMIN authority for admin API
+                        .requestMatchers(AppConstant.PUBLIC_URLS).permitAll()
                         .anyRequest().authenticated() // Require authentication for any other requests
                 );
         // Adding custom authentication provider and JWT filter

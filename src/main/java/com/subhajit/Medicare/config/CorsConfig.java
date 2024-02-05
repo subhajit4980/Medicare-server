@@ -1,6 +1,8 @@
 package com.subhajit.Medicare.config;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
@@ -10,6 +12,7 @@ import java.util.Collections;
 /**
  * Configuration class for CORS (Cross-Origin Resource Sharing).
  */
+@Configuration
 public class CorsConfig implements CorsConfigurationSource {
 
     /**
@@ -17,6 +20,7 @@ public class CorsConfig implements CorsConfigurationSource {
      * @param request The incoming HTTP request
      * @return CorsConfiguration object representing the CORS configuration
      **/
+    @Bean
     @Override
     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
         // Create a new CorsConfiguration object
