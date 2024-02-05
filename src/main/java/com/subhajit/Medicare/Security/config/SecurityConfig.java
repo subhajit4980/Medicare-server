@@ -68,14 +68,8 @@ public class SecurityConfig {
         http.exceptionHandling(exception -> exception.authenticationEntryPoint(point))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(new AntPathRequestMatcher("/api/auth/**")).permitAll() // Permit access to public URLs
-                        .requestMatchers(new AntPathRequestMatcher("/api/productUser/**")).permitAll() // Permit access to public URLs
-                        .requestMatchers(new AntPathRequestMatcher("/api/test/**")).permitAll() // Permit access to public URLs
-                        .requestMatchers(new AntPathRequestMatcher("/swagger-ui/**")).permitAll() // Permit access to public URLs
-                        .requestMatchers(new AntPathRequestMatcher("/v3/api-docs/**")).permitAll() // Permit access to public URLs
-                        .requestMatchers(new AntPathRequestMatcher("/swagger-resources/**")).permitAll() // Permit access to public URLs
-                        .requestMatchers(new AntPathRequestMatcher("/api/Admin/**")).hasAuthority("ADMIN") // Require ADMIN authority for admin API
-                        .anyRequest().authenticated()
+                        .requestMatchers("/api/Admin/**").hasAuthority("ADMIN") // Require ADMIN authority for admin API
+                        .anyRequest().permitAll()
                 );
         http.authenticationProvider(authenticationProvider());
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
