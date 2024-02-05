@@ -15,7 +15,6 @@ com\subhajit\Medicare\Models\Order.class
 com\subhajit\Medicare\controllers\API\Products\ProductUser.class
 com\subhajit\Medicare\Models\ERole.class
 com\subhajit\Medicare\Security\services\MyDataService.class
-com\subhajit\Medicare\Security\config\SecurityConfig$1.class
 com\subhajit\Medicare\Payload\request\ForgetPasswordRequest.class
 com\subhajit\Medicare\Payload\request\ProductRequest$ProductRequestBuilder.class
 com\subhajit\Medicare\Security\config\SecurityConfig.class
@@ -26,7 +25,6 @@ com\subhajit\Medicare\Payload\request\OrderRequest$OrderRequestBuilder.class
 com\subhajit\Medicare\Models\Order$OrderBuilder.class
 com\subhajit\Medicare\Payload\response\JwtResponse.class
 com\subhajit\Medicare\controllers\API\Order\OrderProduct.class
-com\subhajit\Medicare\Security\config\SecurityConfig$2.class
 com\subhajit\Medicare\Security\services\UserDetailsServiceImpl.class
 com\subhajit\Medicare\Payload\response\JwtResponse$JwtResponseBuilder.class
 com\subhajit\Medicare\Models\Product$ProductBuilder.class
