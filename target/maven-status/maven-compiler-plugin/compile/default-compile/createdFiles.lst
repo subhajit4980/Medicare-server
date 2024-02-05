@@ -26,6 +26,7 @@ com\subhajit\Medicare\Payload\request\OrderRequest$OrderRequestBuilder.class
 com\subhajit\Medicare\Models\Order$OrderBuilder.class
 com\subhajit\Medicare\Payload\response\JwtResponse.class
 com\subhajit\Medicare\controllers\API\Order\OrderProduct.class
+com\subhajit\Medicare\Security\config\SecurityConfig$2.class
 com\subhajit\Medicare\Security\services\UserDetailsServiceImpl.class
 com\subhajit\Medicare\Payload\response\JwtResponse$JwtResponseBuilder.class
 com\subhajit\Medicare\Models\Product$ProductBuilder.class

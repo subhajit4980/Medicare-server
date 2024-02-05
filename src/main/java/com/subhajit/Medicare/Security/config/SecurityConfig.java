@@ -21,6 +21,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -67,7 +69,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/api/auth/**")).permitAll() // Permit access to public URLs
-                        .requestMatchers(new AntPathRequestMatcher("/api/Public/**")).permitAll() // Permit access to public URLs
+                        .requestMatchers(new AntPathRequestMatcher("/api/productUser/**")).permitAll() // Permit access to public URLs
                         .requestMatchers(new AntPathRequestMatcher("/api/test/**")).permitAll() // Permit access to public URLs
                         .requestMatchers(new AntPathRequestMatcher("/swagger-ui/**")).permitAll() // Permit access to public URLs
                         .requestMatchers(new AntPathRequestMatcher("/v3/api-docs/**")).permitAll() // Permit access to public URLs
@@ -91,5 +93,16 @@ public class SecurityConfig {
             }
         });
         return http.build();
+    }
+    @Bean
+    public WebMvcConfigurer confg()
+    {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**").allowedOrigins("*");
+                WebMvcConfigurer.super.addCorsMappings(registry);
+            }
+        };
     }
 }
