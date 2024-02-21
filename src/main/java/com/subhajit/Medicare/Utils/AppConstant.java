@@ -4,7 +4,6 @@ import lombok.experimental.UtilityClass;
 import org.springframework.stereotype.Component;
 
 @Component
-@UtilityClass
 public class AppConstant {
     public static final String[] PUBLIC_URLS = {
             "/home",
@@ -27,7 +26,7 @@ public class AppConstant {
     // Regular expression for password validation
     public static final String PASSWORD_PATTERN =
             "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$";
-    public  final String WelcomeSubject="Welcome to Medicare - Your Journey to Health Begins Here!";
+    public static final String WelcomeSubject="Welcome to Medicare - Your Journey to Health Begins Here!";
     // Define the length of the OTP
     public static final int OTP_LENGTH = 6;
 }

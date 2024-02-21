@@ -8,11 +8,10 @@ import java.util.Base64;
 import java.util.List;
 import static com.subhajit.Medicare.Utils.AppConstant.OTP_LENGTH;
 
-@Component
 @UtilityClass
 public class Common {
     // Method to validate password and return missing character types
-    public static List<String> validatePassword(String password) {
+    public  List<String> validatePassword(String password) {
         List<String> missingCharTypes = new ArrayList<>();
         if (!password.matches(".*\\d.*")) missingCharTypes.add("Digit");
         if (!password.matches(".*[a-z].*")) missingCharTypes.add("Lowercase letter");
@@ -22,7 +21,7 @@ public class Common {
     }
 
     // Generate OTP
-    public static String generateOTP() {
+    public  String generateOTP() {
         // Use SecureRandom for generating random numbers
         SecureRandom secureRandom = new SecureRandom();
         // Generate a random byte array
