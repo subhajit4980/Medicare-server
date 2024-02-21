@@ -1,30 +1,37 @@
 package com.subhajit.Medicare.Utils;
 
+import lombok.experimental.UtilityClass;
 import org.springframework.stereotype.Component;
+import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.List;
+import static com.subhajit.Medicare.Utils.AppConstant.OTP_LENGTH;
 
 @Component
+@UtilityClass
 public class Common {
-    public static  String body(int otp){
-        String message="Dear Customere,\n" +
-                "\n" +
-                "We have received a request to reset the password for your account associated with on our platform. To ensure the security of your account, we have initiated the password reset process.\n" +
-                "\n" +
-                "Please find below the One-Time Password (OTP) required to reset your password:\n" +
-                "\n" +
-                "OTP: "+Integer.toString(otp)+"\n" +
-                "\n" +
-                "Please enter this OTP on the password reset page to verify your identity and proceed with resetting your password. This OTP is valid for 5 minutes from the time of this email. If you did not initiate this request, please ignore this email.\n" +
-                "\n" +
-                "For security reasons, please do not share this OTP with anyone. Our support team will never ask you for your OTP or password.\n" +
-                "\n" +
-                "If you have any questions or need further assistance, please don't hesitate to contact our support team at subhajit2000patra@gmail.com.\n" +
-                "\n" +
-                "Thank you for using our platform.\n" +
-                "\n" +
-                "Best regards,\n" +
-                "Medicare";
-        return message;
+    // Method to validate password and return missing character types
+    public static List<String> validatePassword(String password) {
+        List<String> missingCharTypes = new ArrayList<>();
+        if (!password.matches(".*\\d.*")) missingCharTypes.add("Digit");
+        if (!password.matches(".*[a-z].*")) missingCharTypes.add("Lowercase letter");
+        if (!password.matches(".*[A-Z].*")) missingCharTypes.add("Uppercase letter");
+        if (!password.matches(".*[@#$%^&+=!].*")) missingCharTypes.add("Special character");
+        return missingCharTypes;
     }
 
-
+    // Generate OTP
+    public static String generateOTP() {
+        // Use SecureRandom for generating random numbers
+        SecureRandom secureRandom = new SecureRandom();
+        // Generate a random byte array
+        byte[] randomBytes = new byte[OTP_LENGTH];
+        secureRandom.nextBytes(randomBytes);
+        // Encode the byte array to Base64
+        String otp = Base64.getEncoder().encodeToString(randomBytes);
+        // Trim the OTP to the desired length and remove special characters
+        otp = otp.replaceAll("[^a-zA-Z0-9]", "").substring(0, OTP_LENGTH);
+        return otp;
+    }
 }

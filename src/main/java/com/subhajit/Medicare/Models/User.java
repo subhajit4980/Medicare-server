@@ -1,36 +1,39 @@
 package com.subhajit.Medicare.Models;
 
-import jakarta.validation.constraints.Email;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Date;
 
-@Getter
-@Setter
-@AllArgsConstructor
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+@Data
+@Builder
 @NoArgsConstructor
-@Document(collection = "User")
-public class User  {
+@AllArgsConstructor
+@Document(collection = "users") // Collection name in MongoDB
+public class User implements UserDetails {
     @Id
-    private String id;
+    private String userId;
 
     @NotBlank
     private String firstName;
 
     @NotBlank
     private String lastName;
-    @NotBlank
-    @Size(max = 20)
-    private String username;
 
     @NotBlank
     @Size(max = 50)
-    @Email
     private String email;
 
     @NotBlank
@@ -38,15 +41,43 @@ public class User  {
     private String password;
 
     @NotBlank
-    private String creationTime;
-    @DBRef
-    private Set<Role> roles = new HashSet<>();
-    public User(String firstName,String lastName,String username, String email, String password) {
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.username = username;
-        this.email = email;
-        this.password = password;
+    private Date creationDate;
+
+    @Enumerated(EnumType.STRING)
+    private ERole role;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return role.getAuthorities();
     }
 
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }
