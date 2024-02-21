@@ -42,7 +42,6 @@ public class AuthService {
     private final JwtUtils jwtUtils;
     private final EmailService emailService;
     private final Configuration config;
-    private final AppConstant appConstant;
     @SneakyThrows
     public AuthResponse register(SignupRequest request) throws RuntimeException {
         if(!request.getEmail().contains("@gmail.com")) throw new UserException("Email is not valid","EMAIL_NOT_VALID");
@@ -66,7 +65,7 @@ public class AuthService {
             model.put("Name",request.getFirstName()+" "+request.getLastName());
             model.put("medicareWebsiteUrl", "https://subhajit4980.github.io/Subhajit/");
             Template t = config.getTemplate("email-template.ftl");
-            emailService.sendEmail(request.getEmail(),appConstant.WelcomeSubject,t,model);
+            emailService.sendEmail(request.getEmail(),AppConstant.WelcomeSubject,t,model);
             return AuthResponse.builder()
                     .accessToken(jwtToken)
                     .refreshToken(refreshToken)

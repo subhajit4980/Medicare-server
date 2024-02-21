@@ -1,8 +1,10 @@
 package com.subhajit.Medicare.Utils;
 
+import lombok.experimental.UtilityClass;
 import org.springframework.stereotype.Component;
 
 @Component
+@UtilityClass
 public class AppConstant {
     public static final String[] PUBLIC_URLS = {
             "/home",
