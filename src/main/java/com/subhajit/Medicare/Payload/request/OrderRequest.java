@@ -15,8 +15,6 @@ public class OrderRequest {
     @NotBlank
     private int NoOfQuantityToBuy;
     @NotBlank
-    private String username;
-    @NotBlank
     private String email;
     @NotBlank
     private String address;

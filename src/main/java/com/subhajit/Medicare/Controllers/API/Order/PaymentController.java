@@ -5,6 +5,7 @@ import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
 import com.subhajit.Medicare.Models.Order;
+import com.subhajit.Medicare.Models.User;
 import com.subhajit.Medicare.Payload.response.PaymentLinkResponse;
 import com.subhajit.Medicare.Payload.response.UpdatePaymentResponse;
 import com.subhajit.Medicare.Repository.CartRepository;
@@ -33,6 +34,7 @@ public class PaymentController {
     @PostMapping("/{orderId}")
     public ResponseEntity<PaymentLinkResponse> createPaymentLink(@PathVariable String orderId) throws ExecutionControl.UserException, RazorpayException {
         Order order= orderRepository.findByOrderId(orderId).orElseThrow(() -> new UsernameNotFoundException("item Not Found with"));
+        User user=userRepository.findByEmail(order.getEmail()).orElseThrow(() -> new UsernameNotFoundException("user Not not found"));
         PaymentLinkResponse res=new PaymentLinkResponse();
         try {
             RazorpayClient razorpayClient =new RazorpayClient("rzp_test_HSDi72W2hAJpCS","s8c5jMntBliyvvrkKRHRvpp0");
@@ -41,7 +43,7 @@ public class PaymentController {
             paymentRequest.put("currency","INR");
 //
             JSONObject customer=new JSONObject();
-            customer.put("name",order.getUsername());
+            customer.put("name",user.getFirstName()+" "+user.getLastName());
             customer.put("email",order.getEmail());
             customer.put("contact",order.getMobileNumber());
             paymentRequest.put("customer",customer);
@@ -63,6 +65,7 @@ public class PaymentController {
             throw new RazorpayException(e.getMessage());
         }
     }
+    @PostMapping("/updatePayment")
     public ResponseEntity<UpdatePaymentResponse> updatePayment(
             @RequestParam(name = "payment_id")String paymentId,
             @RequestParam(name="order_id") String orderId

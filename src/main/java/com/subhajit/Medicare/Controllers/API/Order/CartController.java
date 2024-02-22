@@ -1,74 +1,65 @@
 package com.subhajit.Medicare.Controllers.API.Order;
 
 import com.subhajit.Medicare.Models.Cart;
-import com.subhajit.Medicare.Models.Product;
 import com.subhajit.Medicare.Payload.request.CartRequest;
+import com.subhajit.Medicare.Payload.response.MessageResponse;
 import com.subhajit.Medicare.Repository.CartRepository;
-import com.subhajit.Medicare.Repository.OrderRepository;
-import com.subhajit.Medicare.Repository.ProductRepository;
-import com.subhajit.Medicare.Repository.UserRepository;
+import com.subhajit.Medicare.Services.Cart_Service;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/api")
 public class CartController {
-    @Autowired
-    ProductRepository productRepository;
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    OrderRepository orderRepository;
+
     @Autowired
     CartRepository cartRepository;
 
+    @Autowired
+    Cart_Service cartService;
+
+    // Endpoint to add an item to the cart
     @PostMapping("/addCart")
-    public ResponseEntity<?> addCart(@Valid @RequestBody CartRequest cartRequest) {
-        Product item_obj = productRepository.findByItemId(cartRequest.getItemId()).orElseThrow(() -> new UsernameNotFoundException("item Not Found with"));
-        if (item_obj.getQuantityInStock() == 0) {
-            return ResponseEntity.badRequest().body("item out of stock");
-        }
-        Cart cart = new Cart(cartRequest.getItemId(), cartRequest.getUsername(), cartRequest.getNoOfQuantityToBuy());
-        cartRepository.save(cart);
-        return ResponseEntity.ok(cart);
+    public ResponseEntity<MessageResponse> addCart(@Valid @RequestBody CartRequest cartRequest) {
+        MessageResponse messageResponse = cartService.addCart(cartRequest);
+        return ResponseEntity.ok(messageResponse);
     }
 
-    @PostMapping("/deleteCartItem")
-    public ResponseEntity<?> deleteCartItem(@Valid @RequestParam("cartId") String cartId) throws Exception {
-        Cart cart = cartRepository.findByCartId(cartId).orElseThrow(() -> new Exception("Cart not found"));
-        cartRepository.delete(cart);
-        return ResponseEntity.ok("CartItem removed successfully");
+    // Endpoint to delete an item from the cart
+    @PutMapping("/deleteCartItem")
+    public ResponseEntity<MessageResponse> deleteCartItem(@Valid @RequestParam("cartId") String cartId) throws Exception {
+        MessageResponse messageResponse = cartService.deleteCartItem(cartId);
+        return ResponseEntity.ok(messageResponse);
     }
 
-    @PostMapping("/increaseItemInCart")
-    public ResponseEntity<?> increaseItemInCart(@Valid @RequestParam("cartId") String cartId, @RequestParam("increment") int increment) throws Exception {
-        Cart cart = cartRepository.findByCartId(cartId).orElseThrow(() -> new Exception("Cart not found"));
-        int quantity = cart.getNoOfQuantityToBuy() + increment;
-        cart.setNoOfQuantityToBuy(quantity);
-        cartRepository.save(cart);
-        return ResponseEntity.ok("CartItem increase successfully");
+    // Endpoint to increase the quantity of an item in the cart
+    @PutMapping("/increaseItemInCart")
+    public ResponseEntity<MessageResponse> increaseItemInCart(@Valid @RequestParam("cartId") String cartId, @RequestParam("increment") int increment) throws Exception {
+        MessageResponse messageResponse = cartService.increaseItemInCart(cartId, increment);
+        return ResponseEntity.ok(messageResponse);
     }
 
-    @PostMapping("/decreaseItemInCart")
-    public ResponseEntity<?> decreaseItemInCart(@Valid @RequestParam("cartId") String cartId, @RequestParam("decrement") int decrement) throws Exception {
-        Cart cart = cartRepository.findByCartId(cartId).orElseThrow(() -> new Exception("Cart not found"));
-        int quantity = cart.getNoOfQuantityToBuy();
-        if (quantity > 0) {
-            cart.setNoOfQuantityToBuy(quantity - decrement);
-            cartRepository.save(cart);
-        }
-        return ResponseEntity.ok("CartItem decrease successfully");
+    // Endpoint to decrease the quantity of an item in the cart
+    @PutMapping("/decreaseItemInCart")
+    public ResponseEntity<MessageResponse> decreaseItemInCart(@Valid @RequestParam("cartId") String cartId, @RequestParam("decrement") int decrement) throws Exception {
+        MessageResponse messageResponse = cartService.decreaseItemInCart(cartId, decrement);
+        return ResponseEntity.ok(messageResponse);
     }
 
-    @GetMapping("/cart")
-    public List<Cart> getCart(@Valid @RequestParam("username") String username) {
-        return cartRepository.findByUsername(username);
+    // Endpoint to remove all items from the cart
+    @PutMapping("/removeCart")
+    public ResponseEntity<MessageResponse> removeCart(String cartId) {
+        MessageResponse messageResponse = cartService.removeCart(cartId);
+        return ResponseEntity.ok(messageResponse);
     }
 
+    // Endpoint to retrieve all items in the cart for a given user
+    @GetMapping("/getCart")
+    public List<Cart> getCart(@Valid @RequestParam("userId") String userId) {
+        return cartRepository.findByUserId(userId);
+    }
 }

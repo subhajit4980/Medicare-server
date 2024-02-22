@@ -18,9 +18,9 @@ public class Order {
     @NotBlank
     private String producId;
     @NotBlank
-    private  int orderQuantity;
+    private String userId;
     @NotBlank
-    private String username;
+    private  int orderQuantity;
     @NotBlank
     private String email;
     @NotBlank
@@ -47,10 +47,9 @@ public class Order {
 //
     private String transectionId;
 
-    public Order(String producId,int orderQuantity, String username, String email, String address, String pinNumber, String mobileNumber, String status, String orderedDate, String expectedDeliveryDate, double price, String imageUrl) {
+    public Order(String producId,int orderQuantity, String email, String address, String pinNumber, String mobileNumber, String status, String orderedDate, String expectedDeliveryDate, double price, String imageUrl) {
         this.producId = producId;
         this.orderQuantity=orderQuantity;
-        this.username = username;
         this.email = email;
         this.address = address;
         this.pinNumber = pinNumber;

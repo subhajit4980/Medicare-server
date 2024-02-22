@@ -16,16 +16,18 @@ public class Cart {
     @Id
     private String cartId;
     @NotBlank
-    private String medicineId;
-//    private String medicineName;
+    private String itemId;
     @NotBlank
-    private String username;
+    private String userId;
     @NotBlank
     private int noOfQuantityToBuy;
+    @NotBlank
+    private String itemName;
 
-    public Cart(String medicineId, String username, int noOfQuantityToBuy) {
-        this.medicineId = medicineId;
-        this.username = username;
+    public Cart(String itemId, String userId, int noOfQuantityToBuy, String itemName) {
+        this.itemId = itemId;
+        this.userId = userId;
         this.noOfQuantityToBuy = noOfQuantityToBuy;
+        this.itemName = itemName;
     }
 }

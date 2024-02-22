@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface OrderRepository extends MongoRepository<Order, String> {
-        List<Order> findByUsername(String username);
+        List<Order> findByUserId(String username);
         Optional<Order> findByOrderId(String orderId);
-        Boolean existsByUsername(String username);
+        Boolean existsByUserId(String username);
         }

@@ -13,7 +13,9 @@ public class CartRequest {
     @NotBlank
     private String itemId;
     @NotBlank
-    private String username;
+    private String userId;
     @NotBlank
     private int noOfQuantityToBuy;
+
+
 }
