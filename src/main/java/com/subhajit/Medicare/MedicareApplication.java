@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+import java.util.Properties;
+
 
 @SpringBootApplication
 public class MedicareApplication extends SpringBootServletInitializer {
@@ -14,6 +16,12 @@ public class MedicareApplication extends SpringBootServletInitializer {
 	}
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(MedicareApplication.class);
+		return builder.sources(MedicareApplication.class).properties(getProperties());
+	}
+
+	static Properties getProperties() {
+		Properties props = new Properties();
+		props.put("spring.config.location", new String[]{"classpath:/application.properties", "file:${catalina.home}/openkm.properties"});
+		return props;
 	}
 }

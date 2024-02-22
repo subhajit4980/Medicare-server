@@ -5,101 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="880bf22f-25fa-4ddc-aa8d-c8ab4af7c386" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Config/CorsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Config/EmailConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Controllers/API/Authentication/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Controllers/API/Authentication/PasswordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Controllers/API/Order/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Controllers/API/Order/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Controllers/UI/Home.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Exceptions/CartException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Exceptions/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Exceptions/ProductOutOfStockException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Exceptions/UserException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Models/Permission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Payload/response/AuthResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Payload/response/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Payload/response/PaymentLinkResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Payload/response/UpdatePaymentResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/AuthTokenFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Services/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Services/Cart_Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Services/EmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Services/LogoutService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Services/PasswordService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Tokens/Token.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Tokens/TokenRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Tokens/TokenType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Utils/AppConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/email-template.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/otp-template.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/f.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/member.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Config/EmailConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Config/EmailConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/MedicareApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/MedicareApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Models/ERole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Models/ERole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Payload/request/CartRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Payload/request/CartRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Payload/request/ForgetPasswordRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Payload/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Payload/request/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Payload/request/SignupRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Payload/request/SignupRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Payload/response/JwtResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Repository/OrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/config/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/config/EmailConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Config/OpenApiConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/jwt/AuthEntryPointJwt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/AuthEntryPointJwt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/jwt/AuthTokenFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/jwt/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/JwtUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/services/EmailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/services/MyDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Services/MyDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/services/UserDetailsImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Security/services/UserDetailsServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Utils/Common.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Utils/Common.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/controllers/API/Authentication/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/controllers/API/Authentication/PasswordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/controllers/API/Order/OrderProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Controllers/API/Order/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/controllers/API/Products/ProductAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Controllers/API/Products/ProductAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/controllers/API/Products/ProductUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Controllers/API/Products/ProductUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/controllers/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/Controllers/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/subhajit/Medicare/controllers/UI/Home.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Medicare.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Medicare.jar.original" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Config/AppConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Config/CorsConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Config/EmailConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Config/OpenApiConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Controllers/API/Authentication/AuthController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Controllers/API/Authentication/PasswordController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Controllers/API/Order/CartController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Controllers/API/Order/OrderController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Controllers/API/Order/PaymentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Controllers/API/Products/ProductAdmin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Controllers/API/Products/ProductUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Controllers/TestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Controllers/UI/Home.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Exceptions/CartException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Exceptions/GlobalExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Exceptions/ProductOutOfStockException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Exceptions/UserException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/MedicareApplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Models/Cart$CartBuilder.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Models/Cart.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Models/ERole.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Models/Order$OrderBuilder.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Models/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Models/Permission.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Models/Product$ProductBuilder.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Models/Product.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Models/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Models/User$UserBuilder.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Models/User.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/request/CartRequest$CartRequestBuilder.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/request/CartRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/request/ForgetPasswordRequest$ForgetPasswordRequestBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/request/ForgetPasswordRequest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/request/LoginRequest$LoginRequestBuilder.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/request/LoginRequest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/request/OrderRequest$OrderRequestBuilder.class" beforeDir="false" />
@@ -110,45 +53,41 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/request/SignupRequest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/request/UpdatePasswordRequest$UpdatePasswordRequestBuilder.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/request/UpdatePasswordRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/response/JwtResponse$JwtResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/response/JwtResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/response/AuthResponse$AuthResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/response/AuthResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/response/ErrorResponse$ErrorResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/response/ErrorResponse.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/response/MessageResponse$MessageResponseBuilder.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/response/MessageResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/response/PaymentLinkResponse$PaymentLinkResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/response/PaymentLinkResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/response/UpdatePaymentResponse$UpdatePaymentResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Payload/response/UpdatePaymentResponse.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Repository/CartRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Repository/OrderRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Repository/ProductRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Repository/RoleRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Repository/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/config/AppConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/config/EmailConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/config/OpenApiConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/config/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/jwt/AuthEntryPointJwt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/jwt/AuthTokenFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/jwt/JwtUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/services/EmailService$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/services/EmailService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/services/MyDataService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/services/UserDetailsImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/services/UserDetailsServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/AuthEntryPointJwt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/AuthTokenFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Security/JwtUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Services/AuthService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Services/Cart_Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Services/EmailService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Services/LogoutService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Services/MyDataService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Services/PasswordService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Tokens/Token$TokenBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Tokens/Token.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Tokens/TokenRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Tokens/TokenType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Utils/AppConstant.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/Utils/Common.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/controllers/API/Authentication/AuthController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/controllers/API/Authentication/PasswordController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/controllers/API/Order/OrderProduct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/controllers/API/Products/ProductAdmin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/controllers/API/Products/ProductUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/controllers/TestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/subhajit/Medicare/controllers/UI/Home.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/email-template.ftl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/home.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/medicinelist.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.subhajit.Medicare.MedicareApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.subhajit.Medicare.MedicareApplicationTests.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/subhajit/Medicare/MedicareApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/otp-template.ftl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/Components/Navbar/TopNavbar/TopNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Components/Navbar/TopNavbar/TopNavbar.js" afterDir="false" />
@@ -174,7 +113,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="7a5f4c6139810ab4ff15309801d362fc4f38924d" />
+        <entry key="$PROJECT_DIR$" value="tomcat" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -195,16 +134,16 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1708552740" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="tomcat" />
-                    <option name="lastUsedInstant" value="1707083841" />
+                    <option name="lastUsedInstant" value="1708552654" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="deploy" />
                     <option name="lastUsedInstant" value="1707066652" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1706650699" />
                   </RecentBranch>
                 </list>
               </option>
@@ -245,30 +184,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MedicareApplication.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JAR Application.Medicare.executor": "Run",
-    "JAR Application.Unnamed.executor": "Run",
-    "Maven.Medicare [clean].executor": "Run",
-    "Maven.Medicare [install].executor": "Run",
-    "Maven.Medicare [package].executor": "Run",
-    "Maven.Medicare [war:war...].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Smart Tomcat.Tomcat-server.executor": "Run",
-    "Smart Tomcat.Tomcat.executor": "Run",
-    "git-widget-placeholder": "Merging main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/subhajit/Desktop/Medicare/Backend/target/Medicare.jar",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MedicareApplication.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JAR Application.Medicare.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Medicare [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Medicare [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Medicare [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Medicare [war:war...].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Smart Tomcat.Tomcat-server.executor&quot;: &quot;Run&quot;,
+    &quot;Smart Tomcat.Tomcat.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/subhajit/Desktop/Medicare/Backend/target/Medicare.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\subhajit\Desktop\Medicare\Backend\src\main\resources" />
@@ -286,7 +225,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.MedicareApplication">
-    <configuration name="MedicareApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="MedicareApplication" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" singleton="false" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="APP_PASSWORD" value="hmdkzhqmdsvhqsfp" />
         <env name="email" value="medicare.team13@gmail.com" />
@@ -315,6 +254,12 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/Medicare.jar" />
       <option name="WORKING_DIRECTORY" value="C:\Users\subhajit\Desktop\Medicare\Backend" />
       <option name="ALTERNATIVE_JRE_PATH" />
+      <envs>
+        <env name="APP_PASSWORD" value="hmdkzhqmdsvhqsfp" />
+        <env name="email" value="medicare.team13@gmail.com" />
+        <env name="mongoDB_Password" value="subhajit4980" />
+        <env name="mongoDB_username" value="subhajitpatra498" />
+      </envs>
       <method v="2" />
     </configuration>
     <configuration name="Tomcat" type="com.poratu.idea.plugins.tomcat" activateToolWindowBeforeRun="false">
