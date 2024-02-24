@@ -55,6 +55,7 @@ public class AuthService {
                 .email(request.getEmail().toUpperCase(Locale.ROOT))
                 .password(encoder.encode(request.getPassword()))
                 .creationDate(new Date(System.currentTimeMillis()))
+                .verified(false)
                 .role(request.getRole())
                 .build();
             var savedUser = userRepository.save(user);

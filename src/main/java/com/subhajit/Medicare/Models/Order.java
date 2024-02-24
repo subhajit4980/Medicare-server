@@ -16,7 +16,7 @@ public class Order {
     @Id
     private String orderId;
     @NotBlank
-    private String producId;
+    private String productId;
     @NotBlank
     private String userId;
     @NotBlank
@@ -37,18 +37,17 @@ public class Order {
     private  String expectedDeliveryDate;
     @NotBlank
     private double price;
-//    private double totalPrice;
     @NotBlank
     private String imageUrl;
-//    @NotBlank
-//    private String paymentType;
-//    @NotBlank
+    @NotBlank
+    private String paymentType;
+    @NotBlank
     private Boolean paymentStatus;
-//
+
     private String transectionId;
 
-    public Order(String producId,int orderQuantity, String email, String address, String pinNumber, String mobileNumber, String status, String orderedDate, String expectedDeliveryDate, double price, String imageUrl) {
-        this.producId = producId;
+    public Order(String productId,int orderQuantity, String email, String address, String pinNumber, String mobileNumber, String status, String orderedDate, String expectedDeliveryDate, double price, String imageUrl) {
+        this.productId = productId;
         this.orderQuantity=orderQuantity;
         this.email = email;
         this.address = address;

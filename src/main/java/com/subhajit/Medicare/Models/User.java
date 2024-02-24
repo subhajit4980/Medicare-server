@@ -43,6 +43,9 @@ public class User implements UserDetails {
     @NotBlank
     private Date creationDate;
 
+    @NotBlank
+    private Boolean verified;
+
     @Enumerated(EnumType.STRING)
     private ERole role;
 

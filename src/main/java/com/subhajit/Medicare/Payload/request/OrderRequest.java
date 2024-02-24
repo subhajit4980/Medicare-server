@@ -22,4 +22,6 @@ public class OrderRequest {
     private  String pinNumber;
     @NotBlank
     private String mobileNumber;
+    @NotBlank
+    private String paymentType;
 }

@@ -52,8 +52,8 @@ public class CartController {
 
     // Endpoint to remove all items from the cart
     @PutMapping("/removeCart")
-    public ResponseEntity<MessageResponse> removeCart(String cartId) {
-        MessageResponse messageResponse = cartService.removeCart(cartId);
+    public ResponseEntity<MessageResponse> removeCart(String userId) {
+        MessageResponse messageResponse = cartService.removeCart(userId);
         return ResponseEntity.ok(messageResponse);
     }
 

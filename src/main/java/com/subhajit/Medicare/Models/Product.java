@@ -39,6 +39,7 @@ public class Product {
     private String imageUrl;
     @NotBlank
     private String pack_Size;
+    @NotBlank
     private String category;
     private List<String> reviews;
     private boolean availabilityStatus;
@@ -46,6 +47,7 @@ public class Product {
     private List<String> sideEffects;
     private int buyer;
     private double rating;
+    @NotBlank
     private String offerType;
 
     public Product(String name, List<String> description, double price, double discount, int quantityInStock, String manufacturer, String manufactureDate, String expiryDate, String activeIngredients, String usageInstructions, String imageUrl, int buyer, double rating) {

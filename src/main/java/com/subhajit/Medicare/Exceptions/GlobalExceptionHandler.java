@@ -9,8 +9,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(CartException.class)
-    public ResponseEntity<Object> handleCartException(CartException ex) {
-        return new ResponseEntity<>(ex.getMessage() + " - Error code: " + ex.getErrorCode(), HttpStatus.BAD_REQUEST);
+    public ResponseEntity<ErrorResponse> handleCartException(CartException ex) {
+        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), ex.getErrorCode());
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(ProductException.class)
+    public ResponseEntity<ErrorResponse> productException(CartException ex) {
+        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), ex.getErrorCode());
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
     @ExceptionHandler(UserException.class)
     public ResponseEntity<ErrorResponse> handleUserException(UserException ex) {

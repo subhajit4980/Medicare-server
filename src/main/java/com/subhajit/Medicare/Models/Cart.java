@@ -23,11 +23,14 @@ public class Cart {
     private int noOfQuantityToBuy;
     @NotBlank
     private String itemName;
+    @NotBlank
+    private String imageUrl;
 
-    public Cart(String itemId, String userId, int noOfQuantityToBuy, String itemName) {
+    public Cart(String itemId, String userId, int noOfQuantityToBuy, String itemName,String imageUrl) {
         this.itemId = itemId;
         this.userId = userId;
         this.noOfQuantityToBuy = noOfQuantityToBuy;
         this.itemName = itemName;
+        this.imageUrl=imageUrl;
     }
 }
