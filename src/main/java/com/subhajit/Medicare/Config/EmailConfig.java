@@ -15,7 +15,6 @@ import java.util.Properties;
  * Configuration class for email-related beans.
  */
 @Configuration
-@PropertySource(value = {"classpath:application.properties"})
 public class EmailConfig {
 
     // Injecting email properties from application.properties

@@ -36,6 +36,7 @@ com\subhajit\Medicare\Tokens\Token$TokenBuilder.class
 com\subhajit\Medicare\Models\User$UserBuilder.class
 com\subhajit\Medicare\Controllers\API\Order\OrderController.class
 com\subhajit\Medicare\Payload\response\PaymentLinkResponse$PaymentLinkResponseBuilder.class
+com\subhajit\Medicare\Exceptions\ProductException.class
 com\subhajit\Medicare\Models\Product$ProductBuilder.class
 com\subhajit\Medicare\Repository\OrderRepository.class
 com\subhajit\Medicare\Config\SecurityConfig.class
@@ -61,11 +62,11 @@ com\subhajit\Medicare\Payload\request\ProductRequest.class
 com\subhajit\Medicare\Payload\response\AuthResponse$AuthResponseBuilder.class
 com\subhajit\Medicare\Models\Role.class
 com\subhajit\Medicare\Payload\response\UpdatePaymentResponse$UpdatePaymentResponseBuilder.class
-com\subhajit\Medicare\Exceptions\ProductOutOfStockException.class
 com\subhajit\Medicare\Utils\Common.class
 com\subhajit\Medicare\Payload\request\LoginRequest$LoginRequestBuilder.class
 com\subhajit\Medicare\Payload\request\OrderRequest.class
 com\subhajit\Medicare\Services\LogoutService.class
+com\subhajit\Medicare\Services\OrderService.class
 com\subhajit\Medicare\Controllers\TestController.class
 com\subhajit\Medicare\Security\AuthEntryPointJwt.class
 com\subhajit\Medicare\Payload\response\ErrorResponse.class
