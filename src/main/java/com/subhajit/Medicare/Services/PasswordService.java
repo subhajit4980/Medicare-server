@@ -33,8 +33,8 @@ public class PasswordService {
     private final PasswordEncoder encoder;
 
     public MessageResponse forgotPassword(String email) throws RuntimeException{
-        if(!email.contains("@gmail.com")) throw new UserException("Email is not valid","EMAIL_NOT_VALID");
-        User user = userRepository.findByEmail(email.toUpperCase(Locale.ROOT)).orElseThrow(()-> new UserException("Email is not registered","EMAIL_NOT_REGISTERED"));
+        if(!email.contains("@gmail.com")) throw new UserException("Email is not valid","EMAIL_NOT_VALID",HttpStatus.NOT_FOUND);
+        User user = userRepository.findByEmail(email.toUpperCase(Locale.ROOT)).orElseThrow(()-> new UserException("Email is not registered","EMAIL_NOT_REGISTERED",HttpStatus.NOT_FOUND));
         String otp= Common.generateOTP();
         HttpSession session = request.getSession();
         session.setAttribute(email.toUpperCase(Locale.ROOT)+"OTP",otp);
@@ -48,7 +48,7 @@ public class PasswordService {
             t = config.getTemplate("otp-template.ftl");
             emailService.sendEmail(user.getEmail(),"Password Reset Request",t,model);
         } catch (Exception e) {
-            throw new UserException( "OTP not send", e.getMessage().toUpperCase(Locale.ROOT));
+            throw new UserException( "OTP not send", e.getMessage().toUpperCase(Locale.ROOT),HttpStatus.NOT_FOUND);
         }
         return new MessageResponse("OTP send to the email address");
     }
@@ -58,14 +58,14 @@ public class PasswordService {
         var se= session.getAttribute(email.toUpperCase(Locale.ROOT)+"OTP");
         var timestamp=session.getAttribute(email.toUpperCase(Locale.ROOT)+"TIME");
         long currentTimeMillis = System.currentTimeMillis();
-        if (se == null || timestamp == null) throw new UserException("OTP is not a valid","OTP_NOT_VALID");
+        if (se == null || timestamp == null) throw new UserException("OTP is not a valid","OTP_NOT_VALID",HttpStatus.BAD_REQUEST);
         if(otp.equals(se) && currentTimeMillis<= ((long)timestamp + (5 * 60 * 1000) )){
             return new MessageResponse("OTP Verified Successfully");
-        }else throw  new UserException("OTP is not a valid","OTP_NOT_VALID");
+        }else throw  new UserException("OTP is not a valid","OTP_NOT_VALID",HttpStatus.NOT_ACCEPTABLE);
     }
     public MessageResponse updatePassword(String password , String email) throws UserException
     {
-        User user= userRepository.findByEmail(email.toUpperCase(Locale.ROOT)).orElseThrow(() -> new UserException("User not found","USER_NOT_EXIST"));
+        User user= userRepository.findByEmail(email.toUpperCase(Locale.ROOT)).orElseThrow(() -> new UserException("User not found","USER_NOT_EXIST",HttpStatus.NOT_FOUND));
         user.setPassword(encoder.encode(password));
         userRepository.save(user);
         return new MessageResponse("Password updated successfully");

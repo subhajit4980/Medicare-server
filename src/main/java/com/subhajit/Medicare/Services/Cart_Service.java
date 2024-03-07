@@ -8,6 +8,7 @@ import com.subhajit.Medicare.Payload.response.MessageResponse;
 import com.subhajit.Medicare.Repository.CartRepository;
 import com.subhajit.Medicare.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,11 +26,11 @@ public class Cart_Service {
     // Method to add an item to the cart
     public MessageResponse addCart(CartRequest cartRequest) {
         // Retrieve the product from the database based on the item id
-        Product item = productRepository.findByItemId(cartRequest.getItemId()).orElseThrow(() -> new CartException("Product not found with item id: " + cartRequest.getItemId(), "CART_NOT_FOUND"));
+        Product item = productRepository.findByItemId(cartRequest.getItemId()).orElseThrow(() -> new CartException("Product not found with item id: " + cartRequest.getItemId(), "CART_NOT_FOUND", HttpStatus.NOT_FOUND));
 
         // Check if the item is out of stock
         if (item.getQuantityInStock() <= cartRequest.getNoOfQuantityToBuy()) {
-            throw new CartException("Available quantity of " + item.getName() + " is " + item.getQuantityInStock(), "PRODUCT_NOT_AVAILABLE");
+            throw new CartException("Available quantity of " + item.getName() + " is " + item.getQuantityInStock(), "PRODUCT_NOT_AVAILABLE",HttpStatus.NOT_ACCEPTABLE);
         }
 
         // Create a new cart object and save it to the database
@@ -40,21 +41,21 @@ public class Cart_Service {
 
     // Method to remove an item from the cart
     public MessageResponse deleteCartItem(String cartId) {
-        Cart cart = cartRepository.findByCartId(cartId).orElseThrow(() -> new CartException("Cart not found with cart id: " + cartId, "CART_NOT_FOUND"));
+        Cart cart = cartRepository.findByCartId(cartId).orElseThrow(() -> new CartException("Cart not found with cart id: " + cartId, "CART_NOT_FOUND",HttpStatus.NOT_FOUND));
         cartRepository.delete(cart);
         return new MessageResponse(cart.getItemName() + " removed successfully");
     }
 
     // Method to increase the quantity of an item in the cart
     public MessageResponse increaseItemInCart(String cartId, int increment) {
-        Cart cart = cartRepository.findByCartId(cartId).orElseThrow(() -> new CartException("Cart not found with cart id: " + cartId, "CART_NOT_FOUND"));
+        Cart cart = cartRepository.findByCartId(cartId).orElseThrow(() -> new CartException("Cart not found with cart id: " + cartId, "CART_NOT_FOUND",HttpStatus.NOT_FOUND));
         int quantity = cart.getNoOfQuantityToBuy() + increment;
         // Retrieve the product from the database based on the item id
-        Product item = productRepository.findByItemId(cart.getItemId()).orElseThrow(() -> new CartException("Product not found with item id: " + cart.getItemId(), "CART_NOT_FOUND"));
+        Product item = productRepository.findByItemId(cart.getItemId()).orElseThrow(() -> new CartException("Product not found with item id: " + cart.getItemId(), "CART_NOT_FOUND",HttpStatus.NOT_FOUND));
 
         // Check if the item is out of stock
         if (item.getQuantityInStock() < quantity) {
-            throw new CartException("Available quantity of " + cart.getItemName() + " is " + item.getQuantityInStock(), "PRODUCT_NOT_AVAILABLE");
+            throw new CartException("Available quantity of " + cart.getItemName() + " is " + item.getQuantityInStock(), "PRODUCT_NOT_AVAILABLE",HttpStatus.NOT_ACCEPTABLE);
         }
         cart.setNoOfQuantityToBuy(quantity);
         cartRepository.save(cart);
@@ -63,13 +64,13 @@ public class Cart_Service {
 
     // Method to decrease the quantity of an item in the cart
     public MessageResponse decreaseItemInCart(String cartId, int decrement) {
-        Cart cart = cartRepository.findByCartId(cartId).orElseThrow(() -> new CartException("Cart not found with cart id: " + cartId, "CART_NOT_FOUND"));
+        Cart cart = cartRepository.findByCartId(cartId).orElseThrow(() -> new CartException("Cart not found with cart id: " + cartId, "CART_NOT_FOUND",HttpStatus.NOT_FOUND));
         int quantity = cart.getNoOfQuantityToBuy();
         if (quantity > decrement) {
             cart.setNoOfQuantityToBuy(quantity - decrement);
             cartRepository.save(cart);
         } else {
-            throw new CartException("item quantity not less than 1", "NOT_PERMITTED");
+            throw new CartException("item quantity not less than 1", "NOT_PERMITTED",HttpStatus.BAD_REQUEST);
         }
         return new MessageResponse(cart.getItemName() + " decrease by " + decrement + " successfully");
     }
@@ -81,7 +82,7 @@ public class Cart_Service {
             List<String> cartIds = cartlist.stream().map(Cart::getCartId).toList();
             cartRepository.deleteAllById(cartIds);
         } catch (Exception e) {
-            throw new CartException("Cart not found with cart id: ", "CART_NOT_FOUND");
+            throw new CartException("Cart not found with cart id: ", "CART_NOT_FOUND",HttpStatus.NOT_FOUND);
         }
         return new MessageResponse("All cart items removed successfully");
     }

@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
     @ExceptionHandler(CartException.class)
     public ResponseEntity<ErrorResponse> handleCartException(CartException ex) {
-        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), ex.getErrorCode());
-        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), ex.getErrorCode(),ex.getStatus(),ex.getStatusCode());
+        return new ResponseEntity<>(errorResponse, ex.getStatus());
     }
     @ExceptionHandler(ProductException.class)
-    public ResponseEntity<ErrorResponse> productException(CartException ex) {
-        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), ex.getErrorCode());
-        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    public ResponseEntity<ErrorResponse> productException(ProductException ex) {
+        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), ex.getErrorCode(),ex.getStatus(),ex.getStatusCode());
+        return new ResponseEntity<>(errorResponse, ex.getStatus());
     }
     @ExceptionHandler(UserException.class)
     public ResponseEntity<ErrorResponse> handleUserException(UserException ex) {
-        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), ex.getErrorCode());
-        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), ex.getErrorCode(),ex.getStatus(),ex.getStatusCode());
+        return new ResponseEntity<>(errorResponse, ex.getStatus());
     }
 }

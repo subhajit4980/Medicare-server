@@ -40,7 +40,7 @@ public class Product {
     @NotBlank
     private String pack_Size;
     @NotBlank
-    private String category;
+    List<String> categories;
     private List<String> reviews;
     private boolean availabilityStatus;
     private String activeIngredients;
@@ -50,8 +50,20 @@ public class Product {
     @NotBlank
     private String offerType;
 
-    public Product(String name, List<String> description, double price, double discount, int quantityInStock, String manufacturer, String manufactureDate, String expiryDate, String activeIngredients, String usageInstructions, String imageUrl, int buyer, double rating) {
+    public Product(String name,
+                   List<String> categories,
+                   List<String> description,
+                   double price,
+                   double discount,
+                   int quantityInStock,
+                   String manufacturer,
+                   String manufactureDate,
+                   String expiryDate,
+                   String activeIngredients,
+                   String usageInstructions,
+                   String imageUrl ) {
         this.name = name;
+        this.categories = categories;
         this.description = description;
         this.price = price;
         this.discountPercentage = discount;
@@ -62,8 +74,6 @@ public class Product {
         this.activeIngredients = activeIngredients;
         this.usageInstructions = usageInstructions;
         this.imageUrl = imageUrl;
-        this.buyer = buyer;
-        this.rating = rating;
     }
 
 //    public Product(String name, double price, double discount, int quantityInStock, String expiryDate) {

@@ -15,10 +15,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class CartController {
-
     @Autowired
     CartRepository cartRepository;
-
     @Autowired
     Cart_Service cartService;
 

@@ -1,5 +1,6 @@
 package com.subhajit.Medicare;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -15,7 +16,7 @@ public class MedicareApplication extends SpringBootServletInitializer {
 		SpringApplication.run(MedicareApplication.class, args);
 	}
 	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+	protected SpringApplicationBuilder configure(@NotNull SpringApplicationBuilder builder) {
 		return builder.sources(MedicareApplication.class).properties(getProperties());
 	}
 

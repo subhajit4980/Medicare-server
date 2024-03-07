@@ -19,6 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -44,11 +45,11 @@ public class AuthService {
     private final Configuration config;
     @SneakyThrows
     public AuthResponse register(SignupRequest request) throws RuntimeException {
-        if(!request.getEmail().contains("@gmail.com")) throw new UserException("Email is not valid","EMAIL_NOT_VALID");
-        if(userRepository.existsByEmail(request.getEmail().toUpperCase(Locale.ROOT))) throw new UserException("User already registered","USER_EXIST");
+        if(!request.getEmail().contains("@gmail.com")) throw new UserException("Email is not valid","EMAIL_NOT_VALID", HttpStatus.BAD_REQUEST);
+        if(userRepository.existsByEmail(request.getEmail().toUpperCase(Locale.ROOT))) throw new UserException("User already registered","USER_EXIST",HttpStatus.BAD_REQUEST);
         var charlist= Common.validatePassword(request.getPassword());
-        if(request.getPassword().length()<8) throw new UserException("Password  length must be greater than 8 characters","PASSWORD_LENGTH_NOT_VALID");
-        if(!charlist.isEmpty()) throw new UserException("Password is invalid. Missing character types:" + charlist.toString(),"INVALID_PASSWORD");
+        if(request.getPassword().length()<8) throw new UserException("Password  length must be greater than 8 characters","PASSWORD_LENGTH_NOT_VALID",HttpStatus.BAD_REQUEST);
+        if(!charlist.isEmpty()) throw new UserException("Password is invalid. Missing character types:" + charlist.toString(),"INVALID_PASSWORD",HttpStatus.BAD_REQUEST);
         var user = User.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
@@ -74,10 +75,10 @@ public class AuthService {
                     .build();
     }
     public AuthResponse authenticate(LoginRequest request) {
-        if(!request.getEmail().contains("@gmail.com")) throw new UserException("Email is not valid","EMAIL_NOT_VALID");
+        if(!request.getEmail().contains("@gmail.com")) throw new UserException("Email is not valid","EMAIL_NOT_VALID",HttpStatus.BAD_REQUEST);
             authentication(request.getEmail().toUpperCase(Locale.ROOT), request.getPassword());
             var user = userRepository.findByEmail(request.getEmail().toUpperCase(Locale.ROOT))
-                    .orElseThrow(() -> new UserException("Email is not registered", "USER_NOT_REGISTERED"));
+                    .orElseThrow(() -> new UserException("Email is not registered", "USER_NOT_REGISTERED",HttpStatus.BAD_REQUEST));
             var jwtToken = jwtUtils.generateJwtToken(user);
             var refreshToken = jwtUtils.generateRefreshToken(user);
             revokeAllUserTokens(user);
@@ -96,7 +97,7 @@ public class AuthService {
             SecurityContextHolder.getContext().setAuthentication(authentication);
             return authentication;
         } catch (org.springframework.security.core.AuthenticationException e) {
-            throw new UserException("Wrong Credentials Provided", e.getMessage().toUpperCase(Locale.ROOT));
+            throw new UserException("Wrong Credentials Provided", e.getMessage().toUpperCase(Locale.ROOT),HttpStatus.BAD_REQUEST);
         }
     }
     private void saveUserToken(User user, String jwtToken, String refreshToken) {

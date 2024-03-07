@@ -12,6 +12,7 @@ import com.subhajit.Medicare.Repository.OrderRepository;
 import com.subhajit.Medicare.Repository.ProductRepository;
 import com.subhajit.Medicare.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
@@ -28,7 +29,7 @@ public class OrderService {
     CartRepository cartRepository;
 
     public MessageResponse orderItem(OrderRequest orderRequest) {
-        Product item = productRepository.findByItemId(orderRequest.getItemId()).orElseThrow(() -> new ProductException("item Not Found with", "NOT_FOUND"));
+        Product item = productRepository.findByItemId(orderRequest.getItemId()).orElseThrow(() -> new ProductException("item Not Found with", "NOT_FOUND", HttpStatus.NOT_FOUND));
         if (item.getQuantityInStock() == 0) {
             return new MessageResponse("item out of stock");
         }
@@ -49,7 +50,7 @@ public class OrderService {
                 // Update the item with the new quantity
                 item.setQuantityInStock(item.getQuantityInStock() - orderRequest.getNoOfQuantityToBuy());
             } else {
-                throw new ProductException("Available quantity of " + item.getName() + " is " + item.getQuantityInStock(), "PRODUCT_NOT_AVAILABLE");
+                throw new ProductException("Available quantity of " + item.getName() + " is " + item.getQuantityInStock(), "PRODUCT_NOT_AVAILABLE",HttpStatus.NOT_ACCEPTABLE);
             }
             if (orderRequest.getPaymentType().equals("ONLINE")) {
 //                TODO Payment method call
@@ -58,7 +59,7 @@ public class OrderService {
             productRepository.save(item);
             orderRepository.save(order);
             return new MessageResponse("item ordered successfully");
-        } else throw new UserException("email not found", "INVALID_EMAIL");
+        } else throw new UserException("email not found", "INVALID_EMAIL",HttpStatus.NOT_ACCEPTABLE);
     }
 
     public List<Order> showOrder(String userId) {
