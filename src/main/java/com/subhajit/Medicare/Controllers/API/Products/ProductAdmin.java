@@ -36,8 +36,9 @@ public class ProductAdmin {
 
     //    delete item from database
     @PostMapping("/delete")
-    public ResponseEntity<MessageResponse> deleteItem(@Valid @RequestBody ProductRequest item) {
-        MessageResponse messageResponse=productService.deleteItem(item);
+    public ResponseEntity<MessageResponse> deleteItem(@Valid @RequestParam String itemId) {
+        MessageResponse messageResponse=productService.deleteItem(itemId);
         return new ResponseEntity<>(messageResponse, HttpStatus.OK);
+//        return ResponseEntity.ok(new MessageResponse("deleitems"));
     }
 }

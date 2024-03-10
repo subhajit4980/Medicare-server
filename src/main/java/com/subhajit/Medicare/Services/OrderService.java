@@ -44,7 +44,7 @@ public class OrderService {
                     LocalDate.now().toString(),
                     LocalDate.now().plusDays(4).toString(),
                     item.getPrice() * orderRequest.getNoOfQuantityToBuy(),
-                    item.getImageUrl());
+                    item.getImageUrl().get(0));
             order.setPaymentType(orderRequest.getPaymentType());
             if (item.getQuantityInStock() >= orderRequest.getNoOfQuantityToBuy()) {
                 // Update the item with the new quantity

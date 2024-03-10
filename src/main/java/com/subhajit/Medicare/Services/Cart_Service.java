@@ -34,7 +34,7 @@ public class Cart_Service {
         }
 
         // Create a new cart object and save it to the database
-        Cart cart = new Cart(cartRequest.getItemId(), cartRequest.getUserId(), cartRequest.getNoOfQuantityToBuy(), item.getName(), item.getImageUrl());
+        Cart cart = new Cart(cartRequest.getItemId(), cartRequest.getUserId(), cartRequest.getNoOfQuantityToBuy(), item.getName(), item.getImageUrl().get(0));
         cartRepository.save(cart);
         return new MessageResponse("Item added to Cart successfully");
     }

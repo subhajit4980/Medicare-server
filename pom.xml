@@ -153,6 +153,19 @@
 			<artifactId>spring-dotenv</artifactId>
 			<version>4.0.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.4.2.Final</version> <!-- Replace with the version you are using -->
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>1.4.2.Final</version> <!-- Replace with the version you are using -->
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>${artifactId}</finalName>

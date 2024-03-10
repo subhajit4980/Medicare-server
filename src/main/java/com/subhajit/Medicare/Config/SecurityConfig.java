@@ -53,7 +53,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(antPathRequestMatcher()).permitAll() // Permit access to public URLs
-                        .requestMatchers(new AntPathRequestMatcher("/api/Admin/**")).hasAuthority("ADMIN") // Require ADMIN authority for admin API
+//                        .requestMatchers(new AntPathRequestMatcher("/api/Admin/**")).hasAuthority("ADMIN") // Require ADMIN authority for admin API
                         .anyRequest().authenticated() // Require authentication for any other requests
                 );
         // Adding custom authentication provider and JWT filter

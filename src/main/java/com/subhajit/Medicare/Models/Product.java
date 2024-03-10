@@ -32,48 +32,50 @@ public class Product {
     @NotBlank
     private String manufactureDate;
     @NotBlank
-    private String expiryDate;
+    private List<String> imageUrl;
     @NotBlank
-    private String usageInstructions;
+    private String category;
     @NotBlank
-    private String imageUrl;
-    @NotBlank
-    private String pack_Size;
-    @NotBlank
-    List<String> categories;
-    private List<String> reviews;
-    private boolean availabilityStatus;
-    private String activeIngredients;
-    private List<String> sideEffects;
-    private int buyer;
-    private double rating;
+    private List<String> tags;
     @NotBlank
     private String offerType;
+    @NotBlank
+    private String shippingInfo;
 
-    public Product(String name,
-                   List<String> categories,
-                   List<String> description,
-                   double price,
-                   double discount,
-                   int quantityInStock,
-                   String manufacturer,
-                   String manufactureDate,
-                   String expiryDate,
-                   String activeIngredients,
-                   String usageInstructions,
-                   String imageUrl ) {
+    private String expiryDate;
+    private String usageInstructions;
+    private String pack_Size;
+    private List<Double> weight;
+    private String weightUnit;
+    private double length;
+    private String lengthUnit;
+    private double width;
+    private double height;
+    private List<String> color;
+    private List<String> material;
+    private String promotionalInfo;
+    private String activeIngredients;
+    private List<String> sideEffects;
+    private List<String> reviews;
+    private int buyer=0;
+    private double rating=0.0;
+
+
+    public Product(String name, List<String> description, double price, double discountPercentage,
+                   int quantityInStock, String brand, String manufactureDate, List<String> imageUrl,
+                   String category, List<String> tags, String offerType, String shippingInfo) {
         this.name = name;
-        this.categories = categories;
         this.description = description;
         this.price = price;
-        this.discountPercentage = discount;
+        this.discountPercentage = discountPercentage;
         this.quantityInStock = quantityInStock;
-        this.brand = manufacturer;
+        this.brand = brand;
         this.manufactureDate = manufactureDate;
-        this.expiryDate = expiryDate;
-        this.activeIngredients = activeIngredients;
-        this.usageInstructions = usageInstructions;
         this.imageUrl = imageUrl;
+        this.category = category;
+        this.tags = tags;
+        this.offerType = offerType;
+        this.shippingInfo = shippingInfo;
     }
 
 //    public Product(String name, double price, double discount, int quantityInStock, String expiryDate) {

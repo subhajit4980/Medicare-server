@@ -5,8 +5,11 @@ import com.subhajit.Medicare.Repository.ProductRepository;
 import com.subhajit.Medicare.Repository.OrderRepository;
 import com.subhajit.Medicare.Repository.UserRepository;
 import com.subhajit.Medicare.Services.EmailService;
+import com.subhajit.Medicare.Services.SearchService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -19,9 +22,7 @@ public class ProductUser {
     @Autowired
     ProductRepository productRepository;
     @Autowired
-    UserRepository userRepository;
-    @Autowired
-    OrderRepository orderRepository;
+    SearchService searchService;
     @Autowired
     EmailService emailService;
     //    Read item data from database
@@ -43,8 +44,8 @@ public class ProductUser {
     }
 
     //    filter all products by category
-    @GetMapping("/filterByCategory")
-    public List<Product> filterByCategory(@Valid @RequestParam("category") String category) {
+    @GetMapping("/filterByCategory/{category}")
+    public List<Product> filterByCategory(@Valid  String category) {
         return productRepository.findByCategory(category);
     }
 
@@ -74,5 +75,11 @@ public class ProductUser {
         List<Product> products = productRepository.findByName(product);
         products.sort(Comparator.comparing(Product::getBuyer).reversed());
         return products;
+    }
+    // search for products
+    @GetMapping("/search/{text}")
+    public ResponseEntity<?> search(String text) {
+        List<Product> products=searchService.findByText(text);
+        return new ResponseEntity<>(products, HttpStatus.OK);
     }
 }
