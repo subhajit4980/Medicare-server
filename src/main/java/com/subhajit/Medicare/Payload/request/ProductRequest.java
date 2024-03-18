@@ -27,10 +27,12 @@ public class ProductRequest {
     private String usageInstructions;
     private String pack_Size;
     private List<Double> weight;
-    private double length;
-    private double width;
-    private double height;
+    private List<Double> length;
+    private List<Double> width;
+    private List<Double> height;
     private List<String> color;
     private List<String> sideEffects;
+    private List<String> promotionalInfo;
+
 
 }

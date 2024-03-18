@@ -1,13 +1,11 @@
 package com.subhajit.Medicare.Payload.request;
 
-import com.subhajit.Medicare.Models.ERole;
-import com.subhajit.Medicare.Models.Role;
+import com.subhajit.Medicare.Models.Enum.ERole;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
-import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor

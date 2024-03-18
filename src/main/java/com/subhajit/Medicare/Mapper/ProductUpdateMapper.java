@@ -1,5 +1,5 @@
 package com.subhajit.Medicare.Mapper;
-import com.subhajit.Medicare.Models.Product;
+import com.subhajit.Medicare.Models.DTO.Product;
 import com.subhajit.Medicare.Payload.request.ProductRequest;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
@@ -20,15 +20,6 @@ public interface ProductUpdateMapper {
         }
         if (request.getQuantityInStock() != 0) {
             product.setQuantityInStock(request.getQuantityInStock());
-        }
-        if (request.getLength() != 0) {
-            product.setLength(request.getLength());
-        }
-        if (request.getWidth() != 0) {
-            product.setWidth(request.getWidth());
-        }
-        if (request.getHeight() != 0) {
-            product.setHeight(request.getHeight());
         }
     }
 }

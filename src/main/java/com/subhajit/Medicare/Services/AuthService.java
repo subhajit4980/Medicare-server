@@ -2,7 +2,7 @@ package com.subhajit.Medicare.Services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.subhajit.Medicare.Exceptions.UserException;
-import com.subhajit.Medicare.Models.User;
+import com.subhajit.Medicare.Models.DTO.User;
 import com.subhajit.Medicare.Payload.request.LoginRequest;
 import com.subhajit.Medicare.Payload.request.SignupRequest;
 import com.subhajit.Medicare.Payload.response.AuthResponse;

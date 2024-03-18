@@ -1,6 +1,6 @@
 package com.subhajit.Medicare.Repository;
 
-import com.subhajit.Medicare.Models.Product;
+import com.subhajit.Medicare.Models.DTO.Product;
 
 import java.util.List;
 

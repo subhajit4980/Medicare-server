@@ -1,6 +1,6 @@
 package com.subhajit.Medicare.Tokens;
 
-import com.subhajit.Medicare.Models.User;
+import com.subhajit.Medicare.Models.DTO.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

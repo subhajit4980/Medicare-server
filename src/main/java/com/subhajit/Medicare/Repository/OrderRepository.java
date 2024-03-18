@@ -1,6 +1,6 @@
 package com.subhajit.Medicare.Repository;
 
-import com.subhajit.Medicare.Models.Order;
+import com.subhajit.Medicare.Models.DTO.Order;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

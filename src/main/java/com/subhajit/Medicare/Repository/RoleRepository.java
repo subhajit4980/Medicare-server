@@ -1,6 +1,6 @@
 package com.subhajit.Medicare.Repository;
 
-import com.subhajit.Medicare.Models.ERole;
+import com.subhajit.Medicare.Models.Enum.ERole;
 import com.subhajit.Medicare.Models.Role;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

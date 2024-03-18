@@ -3,9 +3,11 @@ package com.subhajit.Medicare.Services;
 import com.subhajit.Medicare.Exceptions.ProductException;
 import com.subhajit.Medicare.Mapper.ProductMapper;
 import com.subhajit.Medicare.Mapper.ProductUpdateMapper;
-import com.subhajit.Medicare.Models.Product;
+import com.subhajit.Medicare.Models.DTO.OfferType;
+import com.subhajit.Medicare.Models.DTO.Product;
 import com.subhajit.Medicare.Payload.request.ProductRequest;
 import com.subhajit.Medicare.Payload.response.MessageResponse;
+import com.subhajit.Medicare.Repository.OfferTypeRepository;
 import com.subhajit.Medicare.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,8 @@ import org.springframework.stereotype.Service;
 public class ProductService {
     @Autowired
     ProductRepository productRepository;
+    @Autowired
+    OfferTypeRepository offerTypeRepository;
     public MessageResponse addItem(Product item) {
         if (productRepository.existsByNameAndBrand(item.getName(), item.getBrand())) {
             return (new MessageResponse("item already added! Please Update Product"));

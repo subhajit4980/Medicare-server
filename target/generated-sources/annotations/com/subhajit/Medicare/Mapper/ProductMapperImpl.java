@@ -1,13 +1,14 @@
 package com.subhajit.Medicare.Mapper;
 
-import com.subhajit.Medicare.Models.Product;
+import com.subhajit.Medicare.Models.DTO.Product;
+import com.subhajit.Medicare.Models.Review;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-03-08T12:12:23+0530",
+    date = "2024-03-16T02:34:09+0530",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.8 (Oracle Corporation)"
 )
 public class ProductMapperImpl implements ProductMapper {
@@ -36,11 +37,12 @@ public class ProductMapperImpl implements ProductMapper {
             product.setImageUrl( new ArrayList<String>( list1 ) );
         }
         product.setCategory( item.getCategory() );
+        product.setSubCategory( item.getSubCategory() );
         List<String> list2 = item.getTags();
         if ( list2 != null ) {
             product.setTags( new ArrayList<String>( list2 ) );
         }
-        product.setOfferType( item.getOfferType() );
+        product.setOfferCode( item.getOfferCode() );
         product.setShippingInfo( item.getShippingInfo() );
         product.setExpiryDate( item.getExpiryDate() );
         product.setUsageInstructions( item.getUsageInstructions() );
@@ -50,27 +52,39 @@ public class ProductMapperImpl implements ProductMapper {
             product.setWeight( new ArrayList<Double>( list3 ) );
         }
         product.setWeightUnit( item.getWeightUnit() );
-        product.setLength( item.getLength() );
-        product.setLengthUnit( item.getLengthUnit() );
-        product.setWidth( item.getWidth() );
-        product.setHeight( item.getHeight() );
-        List<String> list4 = item.getColor();
+        List<Double> list4 = item.getLength();
         if ( list4 != null ) {
-            product.setColor( new ArrayList<String>( list4 ) );
+            product.setLength( new ArrayList<Double>( list4 ) );
         }
-        List<String> list5 = item.getMaterial();
+        product.setLengthUnit( item.getLengthUnit() );
+        List<Double> list5 = item.getWidth();
         if ( list5 != null ) {
-            product.setMaterial( new ArrayList<String>( list5 ) );
+            product.setWidth( new ArrayList<Double>( list5 ) );
         }
-        product.setPromotionalInfo( item.getPromotionalInfo() );
-        product.setActiveIngredients( item.getActiveIngredients() );
-        List<String> list6 = item.getSideEffects();
+        List<Double> list6 = item.getHeight();
         if ( list6 != null ) {
-            product.setSideEffects( new ArrayList<String>( list6 ) );
+            product.setHeight( new ArrayList<Double>( list6 ) );
         }
-        List<String> list7 = item.getReviews();
+        List<String> list7 = item.getColor();
         if ( list7 != null ) {
-            product.setReviews( new ArrayList<String>( list7 ) );
+            product.setColor( new ArrayList<String>( list7 ) );
+        }
+        List<String> list8 = item.getMaterial();
+        if ( list8 != null ) {
+            product.setMaterial( new ArrayList<String>( list8 ) );
+        }
+        List<String> list9 = item.getPromotionalInfo();
+        if ( list9 != null ) {
+            product.setPromotionalInfo( new ArrayList<String>( list9 ) );
+        }
+        product.setActiveIngredients( item.getActiveIngredients() );
+        List<String> list10 = item.getSideEffects();
+        if ( list10 != null ) {
+            product.setSideEffects( new ArrayList<String>( list10 ) );
+        }
+        List<Review> list11 = item.getReviews();
+        if ( list11 != null ) {
+            product.setReviews( new ArrayList<Review>( list11 ) );
         }
         product.setBuyer( item.getBuyer() );
         product.setRating( item.getRating() );

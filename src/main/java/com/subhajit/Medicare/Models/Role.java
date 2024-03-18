@@ -1,6 +1,7 @@
 package com.subhajit.Medicare.Models;
 
 
+import com.subhajit.Medicare.Models.Enum.ERole;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

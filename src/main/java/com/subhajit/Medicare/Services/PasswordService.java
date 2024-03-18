@@ -1,24 +1,19 @@
 package com.subhajit.Medicare.Services;
 
 import com.subhajit.Medicare.Exceptions.UserException;
-import com.subhajit.Medicare.Models.User;
+import com.subhajit.Medicare.Models.DTO.User;
 import com.subhajit.Medicare.Payload.response.MessageResponse;
 import com.subhajit.Medicare.Repository.UserRepository;
-import com.subhajit.Medicare.Utils.AppConstant;
 import com.subhajit.Medicare.Utils.Common;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;

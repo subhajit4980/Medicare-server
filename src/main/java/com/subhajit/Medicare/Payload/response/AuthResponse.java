@@ -1,7 +1,7 @@
 package com.subhajit.Medicare.Payload.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.subhajit.Medicare.Models.User;
+import com.subhajit.Medicare.Models.DTO.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.subhajit.Medicare.Mapper;
 
-import com.subhajit.Medicare.Models.Product;
+import com.subhajit.Medicare.Models.DTO.Product;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
